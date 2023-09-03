@@ -1,0 +1,108 @@
+---
+
+const { frontmatter } = Astro.props;
+const pubDate = (frontmatter.pubDate).slice(0,10);
+const coverHeight = "200px";
+const coverImage = `url("${frontmatter.image.url}")`;
+---
+<head>
+  <meta charset="utf-8">
+</head>
+
+<header>
+  <h1>{frontmatter.title}</h1>
+
+  <div class="cover"></div>
+  <div class="cover-foreground"></div>
+</header>
+  <div class="data">
+    <p>Publicado por: <address rel="author">{frontmatter.author}</address></p>
+    <p>Publicado en: <time datetime={ pubDate }>{pubDate}</time></p>
+  </div>
+<main>
+  <slot />
+</main>
+
+
+
+<footer>
+<a href="/blog">Volver</a>
+
+</footer>
+
+
+
+<style define:vars={{ coverHeight, coverImage }} >
+
+
+  header {
+    height: var(--coverHeight);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header > h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px #777;
+  }
+
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;  
+    overflow: hidden;
+    height: var(--coverHeight);
+    background-image: var(--coverImage);
+    background-position-y: center;
+    background-size: 100%;
+    opacity: 0.4;
+  }
+
+.cover-foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    height: var(--coverHeight);
+    background-color: #888;
+}
+
+  footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      /* Otros estilos para el footer */
+  }
+
+footer a {
+  font-size: 1.25rem;
+    color: #fff; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+
+footer a:hover {
+  color: #ff5733; 
+  text-decoration: underline;
+}
+
+
+  main {
+    margin-bottom: 4rem;
+  }
+
+
+</style>
