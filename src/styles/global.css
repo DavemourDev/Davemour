@@ -10,3 +10,12 @@ html {
   font-family: 'Open Sans', 'Helvetica', 'sans-serif';
   font-size: 14px;
 }
+
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}

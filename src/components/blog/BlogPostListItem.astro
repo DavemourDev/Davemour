@@ -7,11 +7,15 @@
  <article class='blog-post'>
   <div class="col">
     <img src={ post.frontmatter.image.url } alt="">
-  
   </div>
  <div class="col">
   <header>
     <h3 class="title">{ post.frontmatter.title }</h3>
+    <div class="tags">
+    { post.frontmatter.tags.map(tag => (
+      <a class='tag' href={ `/tags/${tag}`}>{tag}</a>
+    )) }
+    </div>
     <div class='data'>
       <p>Publicado <time datetime={ post.frontmatter.pubDate.slice(0, 10) }>{ post.frontmatter.pubDate.slice(0, 10) }</time> por <strong rel="author">{ post.frontmatter.author }</strong></p>
     </div>
@@ -63,5 +67,25 @@
 .blog-post footer {
   margin-top: 0.5rem;
 }
+
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+a.tag {
+  background-color: #333;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+}
+
+a.tag:hover {
+  background-color: #77f; 
+}
+
 
 </style>
