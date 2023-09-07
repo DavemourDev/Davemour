@@ -3,20 +3,24 @@
   import Footer from '../components/layout-elements/Footer.astro';
 import '../styles/global.css';
 const {pageTitle} = Astro.props;
+import { ViewTransitions, fade } from 'astro:transitions';
+// See more: https://docs.astro.build/en/guides/view-transitions/#naming-a-transition
+
 ---
-<html lang="en">
+<html lang="en" transition:animate='none'>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <ViewTransitions/ >
   </head>
   <body>
     <Header />
     <h1>{pageTitle}</h1>
     
-    <main>
+    <main transition:animate="slide">
       <slot/>
     </main>
     
