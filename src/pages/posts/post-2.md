@@ -7,7 +7,7 @@ author: 'Davemour'
 image:
   url: 'https://static.wixstatic.com/media/72c0b2_6e72fbf17d694379b8cd51db5ecbef7d~mv2.jpg/v1/fill/w_584,h_334,al_c,lg_1,q_80,enc_auto/72c0b2_6e72fbf17d694379b8cd51db5ecbef7d~mv2.jpg'
   alt: 'Diseño web.'
-tags: ["astro", "bloguear", "aprender en público"]
+tags: ["astro"]
 ---
 
 Al igual que la moda, el diseño web está en constante cambio de tendencias y de modas que van y vienen. Cuando se trata de crear un sitio web que de una impresión profesional, harás bien en mantenerlo fresco y dentro de las tendencias. Después de todo, cuando vas a una entrevista, ¿no deseas verte lo mejor posible?

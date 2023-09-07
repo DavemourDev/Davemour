@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import BlogPost from '../components/blog/BlogPostListItem.astro';
 const pageTitle = 'Artículos';
 const allPosts = await Astro.glob('../pages/posts/*.md');
 ---
@@ -7,55 +9,21 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 <BaseLayout pageTitle={pageTitle} >
   <section>
     { allPosts.map(post => (
-      <article class='blog-post'>
-        <header>
-          <h3 class="title">{ post.frontmatter.title }</h3>
-          <div class='data'>
-            <p>Publicado <time datetime={ post.frontmatter.pubDate.slice(0, 10) }>{ post.frontmatter.pubDate.slice(0, 10) }</time> por <strong rel="author">{ post.frontmatter.author }</strong></p>
-          </div>
-        </header>
-        <hr/>
-
-        <p>{post.frontmatter.description}</p>
-        <footer>
-          <a href={ post.url }>Ir a artículo</a>
-        </footer>
-      </article>
+     <BlogPost postData={post}/>
     )) }
   </section>
 </BaseLayout>
 
 <style>
 
-
-.blog-post {
-  padding: 1rem;
-}
-
-.blog-post header {
-
-}
-
-.blog-post .title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-address {
-  display: inline;
-}
-
 hr {
   border: 3px solid #ccc;
-
 }
 
-.blog-post p {
-  line-height: 2rem;
-
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.blog-post footer {
-  margin-top: 0.5rem;
-}
 </style>

@@ -7,13 +7,13 @@ import Navigation from '../SiteNavigation.astro';
 <header class="page-header">
 		<hgroup>
       <h1>Davemour</h1>
-      <div class="title-switcher">
+      <h2 class="title-switcher">
         <p>Web developer</p>
         <!-- 
-          <p>IT tutor</p>
-          <p>Streamer</p> 
+          <span>IT tutor</span>
+          <span>Streamer</span> 
         -->
-      </div>  
+      </h2>  
     </hgroup>
 
   	<Navigation/>
@@ -22,7 +22,12 @@ import Navigation from '../SiteNavigation.astro';
 
 <style>
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #888;
   }
 
   .page-header {

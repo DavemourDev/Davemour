@@ -7,7 +7,7 @@ author: 'Davemour'
 image:
   url: 'https://imgs.search.brave.com/qG8t6iXpjZ-3RRY1lHH2K9FvQmtRfD14Ic2dVHJ2yew/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9lbG11/bmRvZW50cmVub3Nv/dHJhcy5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjAvMDIv/TG9yZW0taXBzdW1f/b3B0LTc0NXg1MjEu/cG5n'
   alt: 'Lorem Ipsum.'
-tags: ["astro", "bloguear", "aprender en público"]
+tags: ["comunidad"]
 ---
 
 ## ¿Qué es Lorem Ipsum?

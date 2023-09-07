@@ -1,0 +1,67 @@
+---
+  // TODO: crea interfaz de post de blog
+  const post = Astro.props.postData;
+---
+ 
+ 
+ <article class='blog-post'>
+  <div class="col">
+    <img src={ post.frontmatter.image.url } alt="">
+  
+  </div>
+ <div class="col">
+  <header>
+    <h3 class="title">{ post.frontmatter.title }</h3>
+    <div class='data'>
+      <p>Publicado <time datetime={ post.frontmatter.pubDate.slice(0, 10) }>{ post.frontmatter.pubDate.slice(0, 10) }</time> por <strong rel="author">{ post.frontmatter.author }</strong></p>
+    </div>
+  </header>
+  <hr/>
+
+  <p>{post.frontmatter.description}</p>
+  <footer>
+    <a href={ post.url }>Ir a artículo</a>
+  </footer>
+ 
+ </div>
+</article>
+
+
+<style>
+
+
+.blog-post {
+  padding: 1rem;
+  background:#eadaca;
+  display: grid;
+  grid-template-columns: 200px auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+.blog-post img {
+  width: 200px;
+  height: 140px;
+}
+
+.blog-post header {
+
+}
+
+.blog-post .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.blog-post p {
+  line-height: 2rem;
+
+}
+
+.blog-post footer {
+  margin-top: 0.5rem;
+}
+
+</style>
