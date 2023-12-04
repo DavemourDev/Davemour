@@ -1,32 +1,43 @@
 ---
-  import Header from '../components/layout-elements/Header.astro';
-  import Footer from '../components/layout-elements/Footer.astro';
-import '../styles/global.css';
-const {pageTitle} = Astro.props;
-import { ViewTransitions, fade } from 'astro:transitions';
+import Header from "../components/layout-elements/Header.astro";
+import Footer from "../components/layout-elements/Footer.astro";
+import Navigation from "../components/SiteNavigation.astro";
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
+import { ViewTransitions, fade } from "astro:transitions";
 // See more: https://docs.astro.build/en/guides/view-transitions/#naming-a-transition
-
 ---
-<html lang="en" transition:animate='none'>
+
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <ViewTransitions/ >
+    <ViewTransitions />
   </head>
   <body>
     <Header />
+    <Navigation current="home" />
     <h1>{pageTitle}</h1>
-    
+
     <main transition:animate="slide">
-      <slot/>
+      <slot />
     </main>
-    
+
     <Footer />
     <script>
       import "../scripts/menu.js";
+      import { isDarkMode } from "../store/appStore.js";
+
+      const darkMode = isDarkMode.subscribe((value) => {
+        if (value) {
+          document.body.classList.add("dark");
+        } else {
+          document.body.classList.remove("dark");
+        }
+      });
     </script>
   </body>
 </html>

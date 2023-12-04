@@ -1,40 +1,34 @@
 ---
-import Navigation from '../SiteNavigation.astro';
-import ThemeIcon from '../ThemeIcon.astro';
-import HeaderAvatar from './header/HeaderAvatar.astro';
-
+import Navigation from "../SiteNavigation.astro";
+import { LanguageSelector } from "../LanguageSelector.jsx";
+import { ThemeSelector } from "../layout-config/ThemeSelector.jsx";
 ---
-<header class="page-header">
-		
-    <HeaderAvatar/>
-    <hgroup>
-      <h1>Davemour</h1>
-      <h2 class="title-switcher">
-        <p>Web developer</p>
-        <!-- 
+
+<header
+  class="ease-in-out duration-300 page-header bg-white dark:bg-black flex justify-between align-center p-2"
+>
+  <!-- <HeaderAvatar /> -->
+  <hgroup>
+    <h1 class="leading-10 text-black dark:text-white text-xl font-display">
+      Davemour
+    </h1>
+    <h2 class="title-switcher text-lg leading-10 text-gray font-display">
+      <p>Web developer</p>
+      <!-- 
           <span>IT tutor</span>
           <span>Streamer</span> 
         -->
-      </h2>  
-    </hgroup>
+    </h2>
+  </hgroup>
 
-<ThemeIcon/>
-  	<Navigation/>
+  <div class="button-group">
+    <ThemeSelector client:load />
+    <LanguageSelector client:load />
+  </div>
 </header>
 
-
 <style>
-  h1 {
-    font-size: 3rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    color: #888;
-  }
-
   .page-header {
-    background-color: #efcc77;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,5 +36,11 @@ import HeaderAvatar from './header/HeaderAvatar.astro';
     padding: 1rem;
   }
 
-
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
 </style>

@@ -6,16 +6,39 @@
   outline: none;
 }
 
-html {
-  font-family: 'Open Sans', 'Helvetica', 'sans-serif';
-  font-size: 14px;
-}
+:root {
+  --font-base-size: 14px;
+  /* Normal (Light) theme colors HERE */
+  --color-primary: hsl(180, 50%, 10%);
+  --color-secondary: hsl(120, 50%, 50%);
+  --color-tertiary: hsl(60, 50%, 50%);
+  --color-background: hsl(120, 50%, 90%);
+  --color-link: hsl(180, 50%, 50%);
 
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
 }
 
 .dark .nav-links a {
-  color: #fff;
+  --color-link: hsl(180, 50%, 90%);
+}
+
+
+html {
+  font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+  font-size: var(--font-base-size);
+  background-color: var(--color-background);
+  color: var(--color-primary);
+
+  transition: ease 0.4s background-color, ease 0.4s color;
+}
+
+html.dark {
+  /* Dark theme colors here */
+  --color-primary: hsl(180, 50%, 90%);
+  --color-background: hsl(120, 50%, 25%);
+
+}
+
+
+a {
+  color: var(--color-link);
 }

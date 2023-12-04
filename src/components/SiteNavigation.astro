@@ -1,38 +1,53 @@
 ---
+const currentPage = Astro.props.current;
 
-
+const menuOptions = ["home", "about", "blog"];
 ---
 
-
+<head> </head>
 
 <nav class="site-navigation">
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/blog">Blog</a>
-  
+  {
+    menuOptions.map((opt) => (
+      <a
+        href={currentPage !== opt ? "/" : ""}
+        class={currentPage === opt ? "disabled" : ""}
+      >
+        {opt[0].toUpperCase() + opt.slice(1)}
+      </a>
+    ))
+  }
 </nav>
 
 <style>
+  .site-navigation {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
 
-.site-navigation {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
+  a {
+    font-size: 1.25rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: default;
+    padding: 1rem;
+    color: gray;
+  }
 
-a {
-  font-size: 1.25rem;
-    color: #333; 
-    text-decoration: none; 
-    transition: color 0.3s; 
-}
+  a:not(.disabled) {
+    color: black;
+  }
 
-a:hover {
-  color: #ff5733; 
-  text-decoration: underline;
-}
+  a:not(.disabled):hover {
+    color: #ff5733;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
-
+  a.disabled {
+    background-color: #666;
+  }
 </style>
-
