@@ -1,17 +1,15 @@
-import { useState } from "preact/hooks";
+import { useStore } from "@nanostores/preact";
 
-import { toggleDarkMode, isDarkMode } from "../../store/appStore";
+import { toggleDarkMode, darkModeStore } from "../../store/appStore.ts";
 
 export const ThemeSelector = () => {
 
-    const [isDark, setIsDark] = useState(isDarkMode.get());
-
-    isDarkMode.subscribe(setIsDark);
+    const $isDarkMode = useStore(darkModeStore);
 
     return (
         <div>
             <button title="Toggle theme between light and dark" id="themeToggle" class="ease-in-out duration-300 hover:scale-125" onClick={toggleDarkMode}>
-                {isDark ? (
+                {$isDarkMode ? (
                     <img src="/img/theme-icons/moon.png" width="32" alt="moon" />
                 ) : (
                     <img src="/img/theme-icons/sun.png" width="32" alt="sun" />

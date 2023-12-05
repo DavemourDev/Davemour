@@ -22,6 +22,14 @@ module.exports = {
 			'black': '#000000',
 			'white': '#ffffff',
 		},
+		backgroundImage: {
+			section1: "url('img/backgrounds/a1.jpg')",
+			section2: "url('img/backgrounds/a2.jpg')",
+			section3: "url('img/backgrounds/a3.jpg')",
+			section4: "url('img/backgrounds/a4.jpg')",
+			section5: "url('img/backgrounds/a5.jpg')",
+			section6: "url('img/backgrounds/a6.jpg')",
+		},
 	},
 	extend: {
 		spacing: {

@@ -1,53 +1,28 @@
 ---
+import { menuOptions } from "../config";
+import { languageStore } from "../store/appStore";
+import { t } from "../text";
+
 const currentPage = Astro.props.current;
 
-const menuOptions = ["home", "about", "blog"];
+const $language = languageStore.get();
 ---
 
-<head> </head>
-
-<nav class="site-navigation">
+<nav
+  class={"sticky z-1 ease-in-out duration-300 flex flex-row gap-4 justify-center align-center py-4 bg-white dark:bg-black"}
+>
   {
     menuOptions.map((opt) => (
       <a
-        href={currentPage !== opt ? "/" : ""}
-        class={currentPage === opt ? "disabled" : ""}
+        href={"#" + opt.sectionId}
+        class={
+          "block text-blue dark:text-white text-lg bg-gray-400 hover:bg-gray-500  px-1"
+        }
       >
-        {opt[0].toUpperCase() + opt.slice(1)}
+        {t($language, opt.dictionaryKey)}
       </a>
     ))
   }
 </nav>
 
-<style>
-  .site-navigation {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
-
-  a {
-    font-size: 1.25rem;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s;
-    cursor: default;
-    padding: 1rem;
-    color: gray;
-  }
-
-  a:not(.disabled) {
-    color: black;
-  }
-
-  a:not(.disabled):hover {
-    color: #ff5733;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  a.disabled {
-    background-color: #666;
-  }
-</style>
+<style></style>
